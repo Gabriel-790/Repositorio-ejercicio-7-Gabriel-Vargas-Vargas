@@ -1,0 +1,71 @@
+class Proc {
+    int cantidadOP;
+
+    int deposit(){ 
+      System.out.println("Accion no disponible para este banco");}
+
+    int withdrawal(){ 
+      System.out.println("Accion no disponible para este banco");}
+
+    int domesticTransfer(){ 
+      System.out.println("Accion no disponible para este banco");}
+
+    int payroll(){ 
+      System.out.println("Accion no disponible para este banco");}
+
+    int interTransfer(){ 
+      System.out.println("Accion no disponible para este banco");}
+
+    double getFee(){ 
+      return 0;}
+}
+
+class NationalBank extends Proc {
+    double fee = 0;
+
+    @Override 
+    int deposit(){ 
+      System.out.println("Deposito realizado");}
+
+    @Override 
+    int withdrawal(){ 
+      System.out.println("Retiro realizado");}
+
+    @Override 
+    int domesticTransfer(){ 
+      System.out.println("NationalBank: transferencia nacional realizada"); }
+
+    @Override 
+    double getFee(){ 
+      return this.fee;}
+}
+
+class PacificBank extends Proc {
+    double fee = 0.5;
+
+    @Override 
+    int deposit(){ 
+      System.out.println("PacificBank: deposito realizado");}
+
+    @Override
+    int interTransfer(){ 
+      System.out.println("PacificBank: transferencia internacional realizada");}
+
+    @Override 
+    double getFee(){ 
+      return this.fee;}
+}
+
+class SwiftGate extends Proc {
+    int commonFee = 25;
+
+    int percentageFee = 1;
+
+    @Override 
+    int interTransfer(){ 
+      System.out.println("SwiftGate: transferencia internacional realizada");}
+
+    @Override 
+    double getFee(){ 
+      return cFee + pFee;}
+}
