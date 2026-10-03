@@ -1,0 +1,56 @@
+Wallet:
+  - double money
+  - private minusMoney()
+  - private plusMoney()
+
+TransactionRequest (abstract):
+  - int cantidad
+  - verificarMetodos()
+
+  NationalProc <U> extends from TransactionRequest:
+    - //FEE = 0
+    - deposit()
+    - withdrawal()
+    - domesticTrans()
+    - postTransaction()
+
+  PacificProc <U> extends from TransactionRequest:
+    - double fee = 0.5
+    - domesticTrans()
+    - Payroll()
+
+  SwiftProc <U> extends from TransactionRequest:
+    - int fee1 = 25
+    - int fee2 = 1
+    - checkDollar()
+    - internationalTrans()
+
+User:
+  - string nombre
+  - giveMetodos()
+  - Wallet wallet
+
+  PersonalID extends from Persona:
+    - string nationalID
+    - int limit = 2000
+
+  BussinesID extends from Persona:
+    - string companyName
+    - string taxID
+    - int limit = 50000
+
+  MinorID extends from Persona:
+    - string guardian
+    - string nationalID
+    - int limit = 100
+
+  ForeignID extends from persona: 
+    - string country
+    - string passport
+    - SimpleDateFormat
+
+Management:
+  - getID()
+  
+
+  
