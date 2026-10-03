@@ -1,60 +1,60 @@
-Wallet:
-  - double money
-  - private minusMoney()
-  - private plusMoney()
+Proc:
+  - int cantidadOP
+  - deposit()
+  - withdrawal ()
+  - domesticTransfer()
+  - payroll()
+  - interTransfer()
+  - getFee()
 
-TransactionRequest (abstract):
-  - int cantidad
-  - verificarMetodos()
-  - getProcesor()
-
-  NationalProc <U> extends from TransactionRequest:
-    - //FEE = 0
-    - deposit()
-    - withdrawal()
-    - domesticTrans()
+  NationalBank extends from Proc:
+    - fee = 0
     - postTransaction()
 
-  PacificProc <U> extends from TransactionRequest:
+  PacificBank extends from Proc:
     - double fee = 0.5
-    - domesticTrans()
-    - Payroll()
 
-  SwiftProc <U> extends from TransactionRequest:
-    - int fee1 = 25
-    - int fee2 = 1
-    - checkDollar()
-    - internationalTrans()
+  SwiftGate extends from Proc:
+    - int cFee = 25
+    - int pFee = 1
 
 User:
-  - string nombre
-  - giveMetodos()
+  - string name
   - Wallet wallet
-  - int contLimit
-  - plusContLimit()
+  - getDisponibles ()
 
-  PersonalID extends from Persona:
-    - string nationalID
-    - int limit = 2000
+  NationalID extends from User:
+    - int dailyLimit = 2000
+    - Array disponibles 
 
-  BussinesID extends from Persona:
-    - string companyName
-    - string taxID
-    - int limit = 50000
-    
+  MinorID extends from User: 
+    - int dailyLimit = 100
+    - Array disponibles 
 
-  MinorID extends from Persona:
-    - string guardian
-    - string nationalID
-    - int limit = 100 
+  BussinesID extends from User:
+    - int dailyLimit = 50000
+    - Array disponibles
 
-  ForeignID extends from persona: 
-    - string country
-    - string passport
-    - SimpleDateFormat
+  ForeignID extends from User:
+    - int dailyLimit = 5000
+    - Array disponibles
 
-Management:
-  - getID()
+Wallet:
+  - int money
+  - másMoney()
+  - menosMoney()
+  - getMoney()
+
+BankingSystem:
+  - procesarSolicitud()
+  - checkUserDisponibilidad()
+  - procesarTramite()
+
+  
+  
+
+
+
   
 
   
